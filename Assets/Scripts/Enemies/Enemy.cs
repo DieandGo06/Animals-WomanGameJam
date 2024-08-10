@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        
     }
 
     void Update()
@@ -48,6 +49,8 @@ public class Enemy : MonoBehaviour
                 break;
         }
         StartCoroutine(POVRoutine());
+        Rotate();
+        Debug.Log(agent.velocity.normalized);
     }
 
     private void OnDrawGizmos()
@@ -57,6 +60,13 @@ public class Enemy : MonoBehaviour
         DrawRangeView();
     }
 
+
+    void Rotate()
+    {
+        Vector3 moveDirection = transform.localPosition + agent.velocity.normalized;
+        float angle = Matematicas.RadianesEntre(transform.position, moveDirection) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0,0, angle -90);
+    }
 
     //-------------------------------------------------------------------------------------------------------------------
     #region Patrullaje
