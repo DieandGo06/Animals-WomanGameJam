@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: da1916974eb386f4fa2c79ec66883b1e
+guid: b5c80ac9dc72ef74f8fffd3d0ea33e38
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character_FrontWalk_0
+      name: Piedras 1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 400
-        height: 400
+        x: 32
+        y: 23
+        width: 73
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0360c6e0b3c4f2348bdc1c3a9cc250d7
-      internalID: 1989827778
+      spriteID: d78acffee6e6b4a4993fce27f8ed83d1
+      internalID: 1688010405
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_FrontWalk_1
+      name: Piedras 1_1
       rect:
         serializedVersion: 2
-        x: 400
-        y: 0
-        width: 400
-        height: 400
+        x: 167
+        y: 18
+        width: 78
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68c3eeebea5e1ad428c98281c686b173
-      internalID: -1007751786
+      spriteID: 1f7fea1de8873744a9ac995f78a44c28
+      internalID: -946149074
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_FrontWalk_2
+      name: Piedras 1_2
       rect:
         serializedVersion: 2
-        x: 800
-        y: 0
-        width: 400
-        height: 400
+        x: 307
+        y: 15
+        width: 85
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 879fd6215a3bea048af94a5053d8a044
-      internalID: 262190408
+      spriteID: 7a207f7fe7b92e9419b0c1e17c3f4230
+      internalID: 544477015
       vertices: []
       indices: 
       edges: []
@@ -183,9 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Character_FrontWalk_0: 1989827778
-      Character_FrontWalk_1: -1007751786
-      Character_FrontWalk_2: 262190408
+      Piedras 1_0: 1688010405
+      Piedras 1_1: -946149074
+      Piedras 1_2: 544477015
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
