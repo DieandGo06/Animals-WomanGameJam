@@ -103,13 +103,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   target: {fileID: 0}
-  patrolPointIndex: 0
-  patrolPoints:
-  - {x: 4.05, y: -4.8}
-  - {x: -7.17, y: -4.8}
-  - {x: -7.17, y: 1.78}
-  - {x: 17.12, y: 1.78}
-  - {x: 17.12, y: -4.8}
   canSeePlayer: 0
   playerLayer:
     serializedVersion: 2
@@ -117,6 +110,13 @@ MonoBehaviour:
   obstrucLayer:
     serializedVersion: 2
     m_Bits: 64
+  patrolPointIndex: 0
+  patrolPoints:
+  - {x: 4.05, y: -4.8}
+  - {x: -7.17, y: -4.8}
+  - {x: -7.17, y: 1.78}
+  - {x: 17.12, y: 1.78}
+  - {x: 17.12, y: -4.8}
 --- !u!195 &3902137938619349401
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -8,21 +8,23 @@ using EasyButtons;
 //Movimiento de IA sacado de: https://www.youtube.com/watch?v=HRX0pUSucW4
 public class Enemy : MonoBehaviour
 {
-    private enum State { Patrolling, Chase };
+    private enum State { Patrolling, Idle, Chase };
 
     [SerializeField] private State state;
     [SerializeField] Transform target;
-    NavMeshAgent agent;
 
-    [SerializeField] int patrolPointIndex;
-    [SerializeField] List<Vector2> patrolPoints = new List<Vector2>();
-
-
-    float viewRadius = 5;
-    float viewAngle = 75f;
+    [Header("Field of View")]
     public bool canSeePlayer;
     [SerializeField] LayerMask playerLayer;
     [SerializeField] LayerMask obstrucLayer;
+    float viewRadius = 5;
+    float viewAngle = 75f;
+
+    [Header("Patrullaje")]
+    [SerializeField] int patrolPointIndex;
+    [SerializeField] List<Vector2> patrolPoints = new List<Vector2>();
+    NavMeshAgent agent;
+
 
 
 
@@ -31,7 +33,7 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-        
+        patrolPointIndex = patrolPointIndex >= patrolPoints.Count ? 0 : patrolPointIndex;
     }
 
     void Update()
@@ -50,7 +52,6 @@ public class Enemy : MonoBehaviour
         }
         StartCoroutine(POVRoutine());
         Rotate();
-        Debug.Log(agent.velocity.normalized);
     }
 
     private void OnDrawGizmos()
@@ -65,7 +66,7 @@ public class Enemy : MonoBehaviour
     {
         Vector3 moveDirection = transform.localPosition + agent.velocity.normalized;
         float angle = Matematicas.RadianesEntre(transform.position, moveDirection) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0,0, angle -90);
+        transform.rotation = Quaternion.Euler(0, 0, angle - 90);
     }
 
     //-------------------------------------------------------------------------------------------------------------------
@@ -90,12 +91,6 @@ public class Enemy : MonoBehaviour
                 if (patrolPointIndex == patrolPoints.Count) patrolPointIndex = 0;
             }
         }
-    }
-
-    [Button]
-    public void NewPatrollingPoint()
-    {
-        patrolPoints.Add(transform.position);
     }
 
     void DrawPatrollingPoints()
