@@ -88,5 +88,10 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    public Vector2 GetMoveDirection()
+    {
+        return Vector2.zero;
+    }
 }
 
