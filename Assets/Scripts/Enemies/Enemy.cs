@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
-using EasyButtons;
 
 
 //Movimiento de IA sacado de: https://www.youtube.com/watch?v=HRX0pUSucW4
