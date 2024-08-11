@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public Text deathListText; // UI para mostrar la lista de muertes
     public GameObject projectilePrefab; // Prefab del proyectil
     public Transform firePoint; // Punto de disparo
+    private Camera mainCam;
+
 
     private Vector2 moveInput;
     private List<Vector2> deathZones = new List<Vector2>();
@@ -48,21 +50,25 @@ public class PlayerController : MonoBehaviour
     }
 
     void FireProjectile()
+{
+    if (firePoint != null && projectilePrefab != null)
     {
-        // Verificar que firePoint y projectilePrefab estén asignados
-        if (firePoint != null && projectilePrefab != null)
-        {
-            // Instanciar el proyectil en la posición del punto de disparo y con la rotación del firePoint
-            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+        Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 direction = mousePos - firePoint.position;
+        rb.velocity = new Vector2(direction.x, direction.y).normalized * (moveSpeed + 10f);
 
-            // Asignar la velocidad del proyectil en la dirección en la que está "mirando"
-            projectile.GetComponent<Projectile>().speed = moveSpeed + 10f; // Ajusta la velocidad si es necesario
-        }
-        else
-        {
-            Debug.LogError("firePoint o projectilePrefab no está asignado.");
-        }
+        // Rotación del proyectil
+        float rot = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        projectile.transform.rotation = Quaternion.Euler(0, 0, rot - 90);
     }
+    else
+    {
+        Debug.LogError("firePoint o projectilePrefab no está asignado.");
+    }
+}
+
 
     void UpdateDeathList()
     {
@@ -89,9 +95,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
     public Vector2 GetMoveDirection()
     {
         return Vector2.zero;
     }
 }
-
