@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
 
 
 
@@ -26,5 +28,20 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void GoToGameScene()
+    {
+        SceneManager.LoadScene("Game", LoadSceneMode.Single);
+    }
+
+    public void GoToMainMenuScene()
+    {
+        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+    }
+
+    public void GoToCreditosScene()
+    {
+        SceneManager.LoadScene("Creditos", LoadSceneMode.Single);
     }
 }
