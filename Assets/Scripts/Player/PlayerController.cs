@@ -72,6 +72,15 @@ public class PlayerController : MonoBehaviour
             Debug.LogError("firePoint o projectilePrefab no está asignado.");
         }
     }
+<<<<<<< Updated upstream
+=======
+    else
+    {
+        //Debug.LogError("firePoint o projectilePrefab no está asignado.");
+    }
+}
+
+>>>>>>> Stashed changes
 
     void UpdateDeathList()
     {

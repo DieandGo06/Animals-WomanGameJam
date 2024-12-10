@@ -80,7 +80,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator CheckPatrolPoint()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.35f);
 
         if (patrolPoints.Count > 0)
         {
@@ -114,7 +114,7 @@ public class Enemy : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.35f);
             FieldViewCheck();
         }
     }
@@ -139,6 +139,7 @@ public class Enemy : MonoBehaviour
                     canSeePlayer = true;
                     state = State.Chase;
                     target = target == null ? _target : target;
+
                     Debug.DrawLine(transform.position, _target.position, Color.red);
                 }
                 else canSeePlayer = false;
